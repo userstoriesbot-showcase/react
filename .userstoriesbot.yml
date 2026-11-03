@@ -1,0 +1,15 @@
+# Showcase fork only (never part of an upstream pull request).
+version: 1
+app:
+  install: "npx -y bun@1 install --frozen-lockfile"
+  start: npx storybook dev -p {port} --host 0.0.0.0 --no-open --ci
+  url: http://localhost:{port}
+  readyPath: /iframe.html
+  readyStatus: 200
+  runtime: node22
+  env:
+    NODE_ENV: development
+    STORYBOOK_DISABLE_TELEMETRY: "1"
+demo:
+  maxVideos: 1
+  beforePass: true
